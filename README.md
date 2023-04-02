@@ -41,17 +41,29 @@ The function returns `predictions`, the predicted name, `results`, the cropped f
 
 To put it into practice, I used a subset of the [Labeled Faces in the Wild (LFW)](http://vis-www.cs.umass.edu/lfw/) dataset.
 
-Randomly selecting 10 individuals with 20-30 faces each (total 236), the Euclidean distance classifier got an accuracy of 20%. Absolutely terrible.
+<p align="center">
+    <img src="metrics/lfw.jpg" width=500>
+</p>
 
-It turns out that preprocessing our data is very important in almost all machine learning algorithms. By first cropping and centering the faces using Retinaface (a face detection library), and applying image standardization, I was able to get an accuracy of 50%.
+Randomly selecting 10 individuals with 20-30 faces each (total 236) and using 50 principal components, the Euclidean distance classifier got an accuracy of 20%. Absolutely terrible.
 
-Using the linear support vector classifier (SVC) instead, the accuracy increased to 72%. Not too bad.
+It turns out that preprocessing our data is very important in almost all machine learning algorithms. To do this, I first cropped and centered the faces using Retinaface (a face detection library). Then, I applied image standardization. This raised the accuracy to just 26%.
+
+Observing the eigenfaces, it seemed like the first 5 principal components captured the lighting, rather than the shape of the face. Therefore, I decided to remove them, and the accuracy jumped to 50%.
+
+Using 5-nearest neighbors as a classifier, this improved to 55%.
+
+Meanwhile, the linear support vector classifier (SVC) gave an even better accuracy of 72%. Not too bad.
 
 However, the recognition accuracy quickly degrades when more faces are added. Using 50 different people, the accuracy went down to 41%.
 
 <img src="metrics/accuracy_svc.jpg">
 
-It is important to note that LFW is a hard dataset for face recognition, with multiple face orientations and different lighting conditions. Many PCA tutorials online will report accuracies of above 90% - this is possible only with very 
+It is important to note that LFW is a hard dataset for face recognition, with multiple face orientations and different lighting conditions. Many PCA tutorials online will report accuracies of above 90% - this is possible only with very structured datasets, with the same pose and lighting.
+
+Furthermore, 
+
+
 
 
 

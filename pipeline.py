@@ -167,8 +167,8 @@ def run_pipeline(
 
 if __name__ == "__main__":
     run_pipeline(
-        db_path="datasets/lfw_50_cropped", 
-        exclude_indices=[], 
+        db_path="datasets/lfw_10_cropped", 
+        exclude_indices=[0, 1, 2, 3, 4], 
         resolution=(64, 64), 
         classifier="linearsvc", 
         is_show_metrics=True, 
