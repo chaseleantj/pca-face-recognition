@@ -173,6 +173,7 @@ if __name__ == "__main__":
         classifier="linearsvc", 
         is_show_metrics=True, 
         is_extract_face=False,
+        is_scaler=False,
         is_blur=False,
         scale=0.9
     )
