@@ -96,5 +96,4 @@ def model_inference(
     predictions, result, img = recognize_image(cv2.imread(img_path), model, decomposition, scale=scale)
     return predictions, result, img
 
-model_inference("test_images/flower.jpg", "datasets/lfw_10_cropped", resolution=(64, 64), scale=0.9)
-
+model_inference("test_images/woods2.jpg", "datasets/lfw_10_cropped", resolution=(64, 64), scale=0.9)

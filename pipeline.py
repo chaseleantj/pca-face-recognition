@@ -167,10 +167,10 @@ def run_pipeline(
 
 if __name__ == "__main__":
     run_pipeline(
-        db_path="datasets/lfw_50_cropped", 
-        exclude_indices=[0, 1, 2, 3, 4], 
+        db_path="datasets/lfw_10", 
+        exclude_indices=[], 
         resolution=(64, 64), 
-        classifier="linearsvc", 
+        classifier="euclidean", 
         is_show_metrics=True, 
         is_extract_face=False,
         is_scaler=False,
