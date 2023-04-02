@@ -12,11 +12,12 @@ PCA tackles this problem by reducing the number of variables in an image. Using 
 
 The idea is that every person's face is a weighted combination of these "eigenfaces" - and to recognize a new face, we only need to measure how much of each eigenface it consists of.
 
-<img src="metrics/eigenfaces.jpg" width=500>
+<p float="left">
+  <img src="metrics/eigenfaces.jpg" width="300" />
+  <img src="metrics/mean_face.jpg" width="300" /> 
+</p>
 
 Honestly, they look pretty scary. You can also see other interesting stuff like the "mean face", which is the face averaged across all faces in the dataset.
-
-<img src="metrics/mean_face.jpg" width=500>
 
 ## How accurate is it?
 
