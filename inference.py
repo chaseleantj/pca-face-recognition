@@ -58,8 +58,8 @@ def recognize_image(img, model, decomposition, single=False, scale=1, show=True)
         x, y, w, h = coords["x"], coords["y"], coords["w"], coords["h"]
 
         cv2.rectangle(img, (x, y), (x + w, y + h), line_color, round(w / 40))
-        cv2.putText(img, str(prediction), (x + scalef(1.7, w), y - scalef(0.4, w)), cv2.FONT_HERSHEY_SIMPLEX, scalef(0.05, w, is_round=False), (0, 0, 0), scalef(0.18, w))
-        cv2.putText(img, str(prediction), (x + scalef(1.7, w), y - scalef(0.4, w)), cv2.FONT_HERSHEY_SIMPLEX, scalef(0.05, w, is_round=False), line_color, scalef(0.1, w))
+        cv2.putText(img, str(prediction), (x, y - scalef(0.4, w)), cv2.FONT_HERSHEY_SIMPLEX, scalef(0.05, w, is_round=False), (0, 0, 0), scalef(0.18, w))
+        cv2.putText(img, str(prediction), (x, y - scalef(0.4, w)), cv2.FONT_HERSHEY_SIMPLEX, scalef(0.05, w, is_round=False), line_color, scalef(0.1, w))
     if show:
         show_image(img)
 
@@ -96,4 +96,4 @@ def model_inference(
     predictions, result, img = recognize_image(cv2.imread(img_path), model, decomposition, scale=scale)
     return predictions, result, img
 
-model_inference("test_images/woods2.jpg", "datasets/lfw_10_cropped", resolution=(64, 64), scale=0.9)
+model_inference("test_images/tiger_woods.jpg", "datasets/lfw_10_cropped", resolution=(64, 64), scale=0.9)

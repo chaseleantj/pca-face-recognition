@@ -4,6 +4,8 @@ Principal Component Analysis (PCA) is a statistical method that can be used for 
 
 This project aims to use PCA to build a working face recognition system from scratch, and compare its performance with state of the art CNNs.
 
+<img src="metrics/inference.jpg">
+
 ## How it works
 
 A big problem with face recognition is the large number of variables in an image. For example, a 64x64 image will already consist of 4096 variables (pixels). Checking and comparing each pixel is extremely inefficient and easily affected by changes in lighting or background.
@@ -58,8 +60,8 @@ Meanwhile, the linear support vector classifier (SVC) gave an even better accura
 However, the recognition accuracy quickly degrades when more faces are added. Using 50 different people, the accuracy went down to 41%.
 
 <p float="left">
-  <img src="metrics/accuracy_lfw10.jpg" width="200" />
-  <img src="metrics/accuracy_lfw50.jpg" width="200" /> 
+  <img src="metrics/accuracy_lfw10.jpg" width="350" />
+  <img src="metrics/accuracy_lfw50.jpg" width="350" /> 
 </p>
 
 You can run the evaluation using your own data by running `pipeline.py`, with `is_show_metrics=True`.
