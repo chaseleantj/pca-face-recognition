@@ -16,9 +16,9 @@ PCA tackles this problem by reducing the number of variables in an image. Using 
 
 The idea is that every person's face is a weighted combination of these "eigenfaces" - and to recognize a new face, we only need to measure how much of each eigenface it consists of.
 
-<p float="left">
-  <img src="metrics/eigenfaces.jpg" width="350" />
-  <img src="metrics/mean_face.jpg" width="350" /> 
+<p float="left" align="center">
+  <img src="metrics/eigenfaces.jpg" width="400" />
+  <img src="metrics/mean_face.jpg" width="400" /> 
 </p>
 
 Honestly, they look pretty scary. You can also see other interesting stuff like the "average face", calculated based on all the faces in the dataset.
@@ -49,7 +49,7 @@ The function returns (1) `predictions`, the predicted name, (2) `results`, the c
 To put it into practice, I used a subset of the [Labeled Faces in the Wild (LFW)](http://vis-www.cs.umass.edu/lfw/) dataset.
 
 <p align="center">
-    <img src="metrics/lfw.jpg" width=350>
+    <img src="metrics/lfw.jpg" width=400>
 </p>
 
 Randomly selecting 10 individuals with 20-30 faces each (total 236) and using 50 principal components, the Euclidean distance classifier got an accuracy of 20%. Absolutely terrible.
@@ -64,9 +64,9 @@ Meanwhile, the linear support vector classifier (SVC) gave an even better accura
 
 However, the recognition accuracy quickly degrades when more faces are added. Using 50 different people, the accuracy went down to 41%.
 
-<p float="left">
-  <img src="metrics/accuracy_lfw10.jpg" width="350" />
-  <img src="metrics/accuracy_lfw50.jpg" width="350" /> 
+<p float="left" align="center">
+  <img src="metrics/accuracy_lfw10.jpg" width="400" />
+  <img src="metrics/accuracy_lfw50.jpg" width="400" /> 
 </p>
 
 You can evaluate the model using your own data by running `pipeline.py`, with `is_show_metrics=True`.
@@ -77,9 +77,9 @@ Furthermore, face recognition is very different from *face validation*, which is
 
 With that said, modern CNNs vastly outperform traditional PCA methods. For instance, Google's Facenet512 achieves an recognition accuracy of 100% on first dataset and 99% on the second dataset!
 
-<p float="left">
-  <img src="metrics/facenet512_lfw10.jpg" width="350" />
-  <img src="metrics/facenet512_lfw50.jpg" width="350" /> 
+<p float="left" align="center">
+  <img src="metrics/facenet512_lfw10.jpg" width="400" />
+  <img src="metrics/facenet512_lfw50.jpg" width="400" /> 
 </p>
 
 You can check out my implementation of it here.
