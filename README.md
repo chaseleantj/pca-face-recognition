@@ -4,7 +4,9 @@ Principal Component Analysis (PCA) is a statistical method that can be used for 
 
 This project aims to use PCA to build a working face recognition system from scratch, and compare its performance with state of the art CNNs.
 
-<img src="metrics/inference.jpg">
+<p align="center">
+    <img src="metrics/inference.jpg">
+</p>
 
 ## How it works
 
@@ -14,7 +16,10 @@ PCA tackles this problem by reducing the number of variables in an image. Using 
 
 The idea is that every person's face is a weighted combination of these "eigenfaces" - and to recognize a new face, we only need to measure how much of each eigenface it consists of.
 
-<img src="metrics/eigenfaces.jpg">
+<p float="left">
+  <img src="metrics/eigenfaces.jpg" width="350" />
+  <img src="metrics/mean_face.jpg" width="350" /> 
+</p>
 
 Honestly, they look pretty scary. You can also see other interesting stuff like the "average face", calculated based on all the faces in the dataset.
 
@@ -37,14 +42,14 @@ git clone https://github.com/ChaseLean/pca-face-recognition
 ```
 model_inference(img_path="test_images/my_pic.jpg", db_path="datasets/my_dataset")
 ```
-The function returns `predictions`, the predicted name, `results`, the cropped face image(s) and their coordinates and `img`, the annotated original image.
+The function returns (1) `predictions`, the predicted name, (2) `results`, the cropped face image(s) with their coordinates and (3) `img`, the annotated original image.
 
 ## How accurate is it?
 
 To put it into practice, I used a subset of the [Labeled Faces in the Wild (LFW)](http://vis-www.cs.umass.edu/lfw/) dataset.
 
 <p align="center">
-    <img src="metrics/lfw.jpg" width=300>
+    <img src="metrics/lfw.jpg" width=350>
 </p>
 
 Randomly selecting 10 individuals with 20-30 faces each (total 236) and using 50 principal components, the Euclidean distance classifier got an accuracy of 20%. Absolutely terrible.
@@ -64,11 +69,20 @@ However, the recognition accuracy quickly degrades when more faces are added. Us
   <img src="metrics/accuracy_lfw50.jpg" width="350" /> 
 </p>
 
-You can run the evaluation using your own data by running `pipeline.py`, with `is_show_metrics=True`.
+You can evaluate the model using your own data by running `pipeline.py`, with `is_show_metrics=True`.
 
-It is important to note that LFW is a hard dataset for face recognition, with multiple face orientations and different lighting conditions. Many PCA tutorials online will report accuracies of above 90% - this is possible only with very structured datasets, with the same pose and lighting.
+It is important to note that LFW is a hard dataset for face recognition, with multiple face orientations and different lighting conditions. Many PCA tutorials online will report accuracies of above 90% - this is possible only with very easy datasets, with the same pose and lighting.
 
-Furthermore,
+Furthermore, face recognition is very different from *face validation*, which is the action of comparing whether two faces belong to the same person. Many models will report their face validation accuracy instead, as it performs relatively well as the number of people in the dataset increases.
+
+With that said, modern CNNs vastly outperform traditional PCA methods. For instance, Google's Facenet512 achieves an recognition accuracy of 100% on first dataset and 99% on the second dataset!
+
+<p float="left">
+  <img src="metrics/facenet512_lfw10.jpg" width="350" />
+  <img src="metrics/facenet512_lfw50.jpg" width="350" /> 
+</p>
+
+You can check out my implementation of it here.
 
 
 
