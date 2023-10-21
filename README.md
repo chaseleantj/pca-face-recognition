@@ -82,4 +82,4 @@ With that said, modern CNNs vastly outperform traditional PCA methods. For insta
   <img src="metrics/facenet512_lfw50.jpg" width="400" /> 
 </p>
 
-I've finished implementing face recognition using Deepface, and I'll upload it soon.
+<a href="https://github.com/chaseleantj/face-recognition-app">Here's my implementation of it.</a>
